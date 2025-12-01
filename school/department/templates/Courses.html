@@ -1,0 +1,62 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+
+    <link rel="stylesheet" href="{% static 'style/bootstrap-5.3.8-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style/main.css' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dashboard</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">Add New Course</h5>
+                </div>
+
+                <div class="card-body">
+
+
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label">/title</label>
+                            <input type="text" name="title" class="form-control" placeholder="Enter course title" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <input type="text" name="description" class="form-control" placeholder="Enter course description" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Duration</label>
+                            <input type="number"name="duration" class="form-control" placeholder="Enter duration"></input>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'admin' %}" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-success">Save Product</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
